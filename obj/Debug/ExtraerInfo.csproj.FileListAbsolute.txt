@@ -23,3 +23,9 @@ C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\Spire.Pdf.xml
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\Spire.XLS.xml
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\Aspose.Cells.dll
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\Aspose.Cells.xml
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\IronXL.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\IronXL.xml
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\IronXL.dll.config
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\harfbuzz.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\GroupDocs.Conversion.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\GroupDocs.Conversion.xml

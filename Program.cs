@@ -1,4 +1,5 @@
 ﻿using Aspose.Cells;
+using IronXL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,6 +21,32 @@ namespace ExtraerInfo
         }
         public void Extraer()
         {
+            //CONVERTIR XLS A ARCHIVOS XLSX
+            DirectoryInfo difiles = new DirectoryInfo(@"C:\Administración\Proyecto PISA\ArchivosExcel");
+            FileInfo[] files2 = difiles.GetFiles("*.xls");
+            int cantidadfiles= files2.Length;
+
+            if (cantidadfiles > 0)
+            {
+                foreach (var item2 in files2)
+                {
+                    string sourceFile2 = @"C:\Administración\Proyecto PISA\ArchivosExcel\" + item2.Name;
+                    string namefiles = item2.Name.Replace(".XLS", "");
+                    // Load XLS file
+                    var converter = new GroupDocs.Conversion.Converter(sourceFile2);
+                    // Set conversion parameters for XLSX format
+                    var convertOptions = converter.GetPossibleConversions()["xlsx"].ConvertOptions;
+                    // Convert to XLSX format
+                    
+                    converter.Convert(@"C:\Administración\Proyecto PISA\ArchivosExcel\" + namefiles+".xlsx", convertOptions);
+                    item2.Delete();
+                }
+            }
+
+            
+
+
+            //PROCESAR Y EXTRAER LA INFORMACION DE ARCHIVOS XLSX 
             DirectoryInfo di = new DirectoryInfo(@"C:\Administración\Proyecto PISA\ArchivosExcel");
             FileInfo[] files = di.GetFiles("*.xlsx");
 
@@ -70,7 +97,7 @@ namespace ExtraerInfo
                                 connExcel.Open();
                                 DataTable dtExcelSchema;
                                 dtExcelSchema = connExcel.GetOleDbSchemaTable(OleDbSchemaGuid.Tables, null);
-                                string sheetName = dtExcelSchema.Rows[0]["TABLE_NAME"].ToString();
+                                string sheetName = dtExcelSchema.Rows[1]["TABLE_NAME"].ToString();
                                 connExcel.Close();
 
                                 //Read Data from First Sheet.
@@ -85,7 +112,8 @@ namespace ExtraerInfo
 
                         }
 
-                        string cadena = @"Data source=DESKTOP-CV57FOU\SQLEXPRESS; Initial Catalog=BDFarmacia; User ID=jdev; Password=tdr123;Trusted_Connection=false;MultipleActiveResultSets=true";
+                        string cadena = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+                        //string cadena = @"Data source=DESKTOP-CV57FOU\SQLEXPRESS; Initial Catalog=BDFarmacia; User ID=jdev; Password=tdr123;Trusted_Connection=false;MultipleActiveResultSets=true";
 
 
                         using (SqlConnection con = new SqlConnection(cadena))
@@ -93,65 +121,156 @@ namespace ExtraerInfo
                             using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
                             {
                                 //Set the database table name.
-                                sqlBulkCopy.DestinationTableName = "EXCELPISA";
+                                sqlBulkCopy.DestinationTableName = "TESTPISAUPLOAD";
                                 int conta = 1;
                                 foreach (DataColumn col in dt.Columns)
                                 {
-                                    
-                                    
                                         switch (conta)
                                         {
                                             case 1:
                                             sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "idenvio");
                                             conta++;
                                             break;
-                                            case 2:
+                                         case 2:
                                             sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "rfcvendedora");
+                                            conta++;
+                                            break;
+                                        case 3:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "razonsocialremitente");
+                                            conta++;
+                                            break;
+                                        case 4:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "rfcoperador");
+                                            conta++;
+                                            break;
+                                        case 5:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "razonsocialcontratante");
+                                            conta++;
+                                            break;
+                                        case 6:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "rfccliente");
+                                            conta++;
+                                            break;
+                                        case 7:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "razonsocialcliente");
+                                            conta++;
+                                            break;
+                                        case 8:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "secuencia");
+                                            conta++;
+                                            break;
+                                        case 9:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "fechahorallegada");
+                                            conta++;
+                                            break;
+                                        case 10:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "fechahorasalida");
+                                            conta++;
+                                            break;
+                                        case 11:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "claveprodservicio");
+                                            conta++;
+                                            break;
+                                        case 12:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "descripcion");
+                                            conta++;
+                                            break;
+                                        case 13:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "claveunidad");
+                                            conta++;
+                                            break;
+                                        case 14:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "materialpeligroso");
+                                            conta++;
+                                            break;
+                                        case 15:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "pesoenkg");
+                                            conta++;
+                                            break;
+                                        case 16:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "valormercancia");
+                                            conta++;
+                                            break;
+                                        case 17:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "moneda");
+                                            conta++;
+                                            break;
+                                        case 18:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "numpiezas");
+                                            conta++;
+                                            break;
+                                        case 19:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "unidadpeso");
+                                            conta++;
+                                            break;
+                                        case 20:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "secuenciaorigen");
+                                            conta++;
+                                            break;
+                                        case 21:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "municipio1");
+                                            conta++;
+                                            break;
+                                        case 22:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "calle1");
+                                            conta++;
+                                            break;
+                                        case 23:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "estado1");
+                                            conta++;
+                                            break;
+                                        case 24:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "pais1");
+                                            conta++;
+                                            break;
+                                        case 25:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "colonia1");
+                                            conta++;
+                                            break;
+                                        case 26:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "codigopostal1");
+                                            conta++;
+                                            break;
+                                        case 27:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "secuenciadestino");
+                                            conta++;
+                                            break;
+                                        case 28:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "municipio2");
+                                            conta++;
+                                            break;
+                                        case 29:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "calle2");
+                                            conta++;
+                                            break;
+                                        case 30:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "estado2");
+                                            conta++;
+                                            break;
+                                        case 31:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "pais2");
+                                            conta++;
+                                            break;
+                                        case 32:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "colonia2");
+                                            conta++;
+                                            break;
+                                        case 33:
+                                            sqlBulkCopy.ColumnMappings.Add(col.ColumnName, "codigopostal2");
                                             break;
                                     }
                                 }
-                                
-                                // Map the Excel columns with that of the database table, this is optional but good if you do
-                                // 
-                                //sqlBulkCopy.ColumnMappings.Add("idenvio", "{0}");
-                                //sqlBulkCopy.ColumnMappings.Add("rfcvendedora", "RFC Sociedad Vendedora");
-                                //sqlBulkCopy.ColumnMappings.Add("razonsocialremitente", "Av_cmd_description");
-                                //sqlBulkCopy.ColumnMappings.Add("Af_count", "Af_count");
-                                //sqlBulkCopy.ColumnMappings.Add("Av_countunit", "Av_countunit");
-                                //sqlBulkCopy.ColumnMappings.Add("Av_description_parts", "Av_description_parts");
-                                //sqlBulkCopy.ColumnMappings.Add("Af_weight", "Af_weight");
-                                //sqlBulkCopy.ColumnMappings.Add("Av_weightunit", "Av_weightunit");
-                                //sqlBulkCopy.ColumnMappings.Add("Av_description_units", "Av_description_units");
                                 con.Open();
                                 sqlBulkCopy.WriteToServer(dt);
                                 con.Close();
                             }
                         }
-                        //Fin extension
-                    } //FOREACH END 
+                        
+                    } 
 
-                    //var ultimo_archivo = (from f in di.GetFiles()
-                    //                      orderby f.LastWriteTime descending
-                    //                      select f).First();
-
-
-
-                    //string datestring = DateTime.Now.ToString("yyyyMMddHHmmss");
-                    //string aname = datestring + "-" + ultimo_archivo.Name;
-                    //string farchivo = ultimo_archivo + datestring;
-                    ////Console.WriteLine("Copia existosa: " + farchivo);
-
-
-                    //string sourceFile = @"C:\Users\Administrator\Documents\SAYER\" + ultimo_archivo;
-
-
-                    //string destinationFile = @"C:\inetpub\wwwroot\SWUpload\Uploads\" + datestring + "-" + ultimo_archivo;
-                    //System.IO.File.Move(sourceFile, destinationFile);
-                    //DirectoryInfo dis = new DirectoryInfo(@"C:\inetpub\wwwroot\SWUpload\Uploads");
-                    //FileInfo[] filess = dis.GetFiles("*.xml");
-                    //var lasts = filess.Last();
-                    ////cargarEnSQL(aname);
-                    //Console.WriteLine("Copia existosa: " + lasts);
+                    string destinationFile = @"C:\Administración\Proyecto PISA\Uploads\" + item.Name;
+                    System.IO.File.Move(sourceFile, destinationFile);
+                    Console.WriteLine("Carga exitosa del archivo: " + item.Name );
                 }
 
             }
