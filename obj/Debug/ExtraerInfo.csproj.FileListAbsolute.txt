@@ -29,3 +29,16 @@ C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\IronXL.dll.config
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\harfbuzz.dll
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\GroupDocs.Conversion.dll
 C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\GroupDocs.Conversion.xml
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\ExtraerInfo.exe.manifest
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\ExtraerInfo.application
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\obj\Debug\ExtraerInfo.exe.manifest
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\obj\Debug\ExtraerInfo.application
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\ExcelMapper.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\NPOI.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\NPOI.OOXML.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\ExcelMapper.xml
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\NPOI.xml
+C:\Users\Lenovo\source\repos\ExtraerInfo\ExtraerInfo\bin\Debug\System.Text.Encoding.CodePages.dll
