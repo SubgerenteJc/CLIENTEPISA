@@ -90,14 +90,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtraerInfo.exe" size="7656">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExtraerInfo.exe" size="10216">
       <assemblyIdentity name="ExtraerInfo" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>u7toUlFwp/6lymn9wZSZnSBDDGHzvsTZbmWAIFhT0sQ=</dsig:DigestValue>
+        <dsig:DigestValue>9S2b6ndDqaRKw0cn60J3I0w0P970T9XuQfNqcRLRJDE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -269,13 +269,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="ExtraerInfo.exe.config" size="782">
+  <file name="ExtraerInfo.exe.config" size="785">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>agxAMFZuadfYoZUEwdGB6vq5qmMlvulSd7fWURZG2PI=</dsig:DigestValue>
+      <dsig:DigestValue>qVHWldWSZrp/DJVQGQ12XVU68azhW5Nz/x1eJRVlhG8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SpreadsheetLight.xml" size="870651" writeableType="applicationData">

@@ -66,7 +66,7 @@ namespace ExtraerInfo
                         string col10 = valores[9].ToString();
                         string clave = valores[10].ToString();
                         string Av_cmd_code = clave.Replace("'", "");
-                        string descrip = valores[11].ToString();
+                        string descrip = valores[11].ToString().Replace("�", "Ñ");
                         string Av_cmd_description = descrip.Replace("\"", "");
                         string Av_countunit = valores[12].ToString();
                         string col14 = valores[13].ToString();
@@ -77,7 +77,7 @@ namespace ExtraerInfo
                         //string Af_count = valores[17].ToString();
                         string Av_weightunit = valores[18].ToString();
                         string col20 = valores[19].ToString();
-                        string col21 = valores[20].ToString();
+                        string col21 = valores[20].ToString().Replace("�", "Ñ");
                         string col22 = valores[21].ToString();
                         string col23 = valores[22].ToString();
                         string col24 = valores[23].ToString();
@@ -642,10 +642,10 @@ namespace ExtraerInfo
         }
         public void InsertMerc(string col1, string col2, string col3, string col4, string col5, string col6, string col7, string col8, string col9, string col10, string Av_cmd_code, string Av_cmd_description, string Av_countunit, string col14, string Af_weight, string col16, string col17, string Af_count, string Av_weightunit, string col20, string col21, string col22, string col23, string col24, string col25, string col26, string col27, string col28, string col29, string col30, string col31, string col32, string col33)
         {
-            string cadena2 = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
+            string cadena = @"Data source=172.24.16.112; Initial Catalog=TMWSuite; User ID=sa; Password=tdr9312;Trusted_Connection=false;MultipleActiveResultSets=true";
             //DataTable dataTable = new DataTable();
 
-            using (SqlConnection connection = new SqlConnection(cadena2))
+            using (SqlConnection connection = new SqlConnection(cadena))
             {
 
                 using (SqlCommand selectCommand = new SqlCommand("sp_Insert_Merc_Pisa_JC", connection))
@@ -672,7 +672,6 @@ namespace ExtraerInfo
                     selectCommand.Parameters.AddWithValue("@col17", col17);
                     selectCommand.Parameters.AddWithValue("@Af_count", Af_count);
                     selectCommand.Parameters.AddWithValue("@Av_weightunit", Av_weightunit);
-                    selectCommand.Parameters.AddWithValue("@Af_count", Af_count);
                     selectCommand.Parameters.AddWithValue("@col20", col20);
                     selectCommand.Parameters.AddWithValue("@col21", col21);
                     selectCommand.Parameters.AddWithValue("@col22", col22);
